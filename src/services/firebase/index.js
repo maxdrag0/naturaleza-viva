@@ -1,7 +1,8 @@
 import {
   obtenerProductos,
-  obtenerProductosPorId,
+  obtenerProductosPorCodigo,
   crearProducto,
+  sembrarProductos,
 } from "./productosFirebase";
 
 import { crearCompra } from "./comprasFirebase";
@@ -11,6 +12,7 @@ export const firebase = {
   crearCompra,
   crearContacto,
   obtenerProductos,
-  obtenerProductosPorId,
+  obtenerProductosPorCodigo,
   crearProducto,
+  sembrarProductos,
 };

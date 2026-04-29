@@ -5,8 +5,8 @@ import "./ProductDetails.css";
 import useProductDetails from "../../hooks/useProductDetails.jsx";
 
 function ProductDetail() {
-  const { id } = useParams();
-  const { itemSeleccionado, loading, error } = useProductDetails(id);
+  const { codigo } = useParams();
+  const { itemSeleccionado, loading, error } = useProductDetails(codigo);
 
   if (error) {
     return (

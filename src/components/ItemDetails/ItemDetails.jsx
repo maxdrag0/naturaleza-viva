@@ -9,7 +9,7 @@ import Modal from "../common/Modal/Modal";
 
 function ItemDetails({ item }) {
   const { cartList, addToCart } = useContext(CartContext);
-  const isInCart = cartList.some((prod) => prod.id === item.id);
+  const isInCart = cartList.some((prod) => prod.codigo === item.codigo);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [count, setCount] = useState(1);
 
@@ -33,17 +33,17 @@ function ItemDetails({ item }) {
   return (
     <div className="item-detail-container">
       <div className="item-img">
-        <img src={item.pictureUrl} />
+        <img src={item.fotoUrl} />
       </div>
       <div className="item-detail">
         <div className="item-detail__intro">
-          <div className="item-detail__intro__titulo">{item.title}</div>
+          <div className="item-detail__intro__titulo">{item.nombre}</div>
           <div className="item-detail__intro__rating">
-            ( {item.rating.rate} of {item.rating.count} )
+            {/* ( {item.rating.rate} of {item.rating.count} ) */}
           </div>
-          <div className="item-detail__description">{item.description}</div>
+          <div className="item-detail__description">{item.descripcion}</div>
           <div className="item-detail__price">
-            $ {item.price} (Stock: {item.stock})
+            $ {item.precioUnitario} (Stock: {item.stock})
           </div>
         </div>
 
@@ -76,7 +76,7 @@ function ItemDetails({ item }) {
         onClose={() => setIsModalOpen(false)}
         onAccept={() => setIsModalOpen(false)}
         tittle="¡Éxito!"
-        message={`Has agregado ${count} unidad(es) de ${item.title} al carrito.`}
+        message={`Has agregado ${count} unidad(es) de ${item.nomre} al carrito.`}
       ></Modal>
     </div>
   );

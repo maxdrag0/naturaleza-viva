@@ -15,24 +15,10 @@ function Menu() {
               Home
             </NavLink>
           </li>
-          <li className="menu-item products-dropdown">
+          <li className="menu-item">
             <NavLink to="/products" className="menu-item-link">
               Products
             </NavLink>
-            <ul className="submenu">
-              {categoryValues.map((category) => {
-                return (
-                  <li key={category} className="submenu-item">
-                    <Link
-                      to={`/products/${category}`}
-                      className="submenu-item-link"
-                    >
-                      {category}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
           </li>
 
           <li className="menu-item">

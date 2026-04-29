@@ -2,6 +2,7 @@ import ItemListContainer from "../../components/ItemListContainer/ItemListContai
 import { PuffLoader } from "react-spinners";
 import { useProducts } from "../../hooks/useProducts";
 import "./Home.css";
+import InicializarBaseDeDatos from "../../components/InicializarBaseDeDatos";
 
 function Home() {
   const { items, loading } = useProducts();
@@ -15,6 +16,8 @@ function Home() {
         ) : (
           <ItemListContainer items={items} />
         )}
+
+        {/* <InicializarBaseDeDatos /> */}
       </div>
     </>
   );

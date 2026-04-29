@@ -64,7 +64,7 @@ function Carrito() {
       ) : (
         <>
           {cartList.map((item) => (
-            <CarritoCard key={item.idProduct} item={item} />
+            <CarritoCard key={item.codigo} item={item} />
           ))}
         </>
       )}

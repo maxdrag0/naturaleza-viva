@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { services } from "../services/index.js";
 import { useNavigate } from "react-router-dom";
 
-function useProductDetails(id) {
+function useProductDetails(codigo) {
   const [itemSeleccionado, setItemSeleccionado] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!id) {
+    if (!codigo) {
       setLoading(false);
       return;
     }
@@ -18,7 +18,7 @@ function useProductDetails(id) {
     setError(null);
 
     services.firebase
-      .obtenerProductosPorId(id)
+      .obtenerProductosPorCodigo(codigo)
       .then((product) => {
         if (!product) {
           navigate("/not-found", { replace: true });
@@ -34,7 +34,7 @@ function useProductDetails(id) {
       .finally(() => {
         setLoading(false);
       });
-  }, [id, navigate]);
+  }, [codigo, navigate]);
 
   return { itemSeleccionado, loading, error };
 }

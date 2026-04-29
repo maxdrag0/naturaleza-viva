@@ -4,15 +4,15 @@ import "./Item.css";
 function Item({ item }) {
   return (
     <div className="itemCard">
-      <div className="titulo">{item.title}</div>
+      <div className="titulo">{item.nombre}</div>
       <div className="img">
-        <img src={item.pictureUrl} alt="" title={item.description} />
+        <img src={item.fotoUrl || null} alt={item.nombre} title={item.descripcion} />
       </div>
       <div className="descripcion">
-        <strong>Precio:</strong> ${item.price}
+        <strong>Precio:</strong> ${item.precioUnitario}
       </div>
       <div className="button">
-        <Link to={`/product/${item.id}`}>
+        <Link to={`/product/${item.codigo}`}>
           <button>Ver detalle del producto</button>
         </Link>
       </div>
