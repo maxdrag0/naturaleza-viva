@@ -37,7 +37,11 @@ function NavBar() {
         <Logo />
 
         {/* Hamburger Icon for Mobile */}
-        <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
+        <button
+          className="mobile-menu-btn"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
@@ -46,7 +50,7 @@ function NavBar() {
           <ul className="nav-links">
             <li>
               <NavLink to="/" className="nav-link" onClick={closeMenu}>
-                Home
+                Inicio
               </NavLink>
             </li>
             <li>
@@ -65,8 +69,8 @@ function NavBar() {
         {/* Actions (Right Side) */}
         <div className="nav-actions">
           {/* Mobile Search Toggle */}
-          <button 
-            className="mobile-search-btn" 
+          <button
+            className="mobile-search-btn"
             onClick={() => setShowMobileSearch(!showMobileSearch)}
             aria-label="Buscar"
           >
@@ -74,13 +78,13 @@ function NavBar() {
           </button>
 
           {/* Search Form */}
-          <form 
-            className={`nav-search-form ${showMobileSearch ? "mobile-show" : ""}`} 
+          <form
+            className={`nav-search-form ${showMobileSearch ? "mobile-show" : ""}`}
             onSubmit={handleSearchSubmit}
           >
-            <input 
-              type="text" 
-              placeholder="Buscar..." 
+            <input
+              type="text"
+              placeholder="Buscar..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="nav-search-input"
@@ -91,18 +95,30 @@ function NavBar() {
           </form>
 
           {isAdmin && (
-            <NavLink to="/admin" className="nav-action-link admin-link" title="Admin Dashboard">
+            <NavLink
+              to="/admin"
+              className="nav-action-link admin-link"
+              title="Admin Dashboard"
+            >
               <Shield size={20} />
               <span className="action-text">Admin</span>
             </NavLink>
           )}
           {user ? (
-            <NavLink to="/profile" className="nav-action-link user-link" title="Mi Perfil">
+            <NavLink
+              to="/profile"
+              className="nav-action-link user-link"
+              title="Mi Perfil"
+            >
               <User size={20} />
               <span className="action-text">Perfil</span>
             </NavLink>
           ) : (
-            <NavLink to="/login" className="nav-action-link user-link" title="Iniciar Sesión">
+            <NavLink
+              to="/login"
+              className="nav-action-link user-link"
+              title="Iniciar Sesión"
+            >
               <User size={20} />
               <span className="action-text">Ingresar</span>
             </NavLink>

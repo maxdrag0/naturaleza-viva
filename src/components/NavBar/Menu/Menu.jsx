@@ -15,7 +15,7 @@ function Menu() {
         <ul className="menu">
           <li className="menu-item">
             <NavLink to="/" className="menu-item-link">
-              Home
+              Inicio
             </NavLink>
           </li>
           <li className="menu-item">
