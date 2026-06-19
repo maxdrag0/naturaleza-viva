@@ -2,10 +2,13 @@ import { NavLink } from "react-router-dom";
 import "./Menu.css";
 import { Link } from "react-router-dom";
 import { CATEGORIES } from "../../../constants/categories";
+import { useAuth } from "../../../contexts/AuthContext";
 
 const categoryValues = Object.values(CATEGORIES);
 
 function Menu() {
+  const { user, isAdmin } = useAuth();
+
   return (
     <>
       <nav className="container-menu">
@@ -17,13 +20,12 @@ function Menu() {
           </li>
           <li className="menu-item">
             <NavLink to="/products" className="menu-item-link">
-              Products
+              Productos
             </NavLink>
           </li>
-
           <li className="menu-item">
             <NavLink to="/contact" className="menu-item-link">
-              Contact
+              Contacto
             </NavLink>
           </li>
         </ul>

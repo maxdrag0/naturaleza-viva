@@ -8,20 +8,30 @@ import Carrito from "@/pages/Carrito/Carrito";
 import Contact from "@/pages/Contact/Contact";
 import ProductDetail from "@/pages/ProductDetails/ProductDetails";
 import NotFound from "./pages/NotFound/NotFound";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+import Profile from "./pages/Profile/Profile";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 function App() {
   return (
     <>
       <NavBar />
-      <Routes>
-        <Route path="" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:category" element={<Products />} />
-        <Route path="/product/:codigo" element={<ProductDetail />} />
-        <Route path="/carrito" element={<Carrito />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
+      <main className="page-container">
+        <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:category" element={<Products />} />
+          <Route path="/product/:codigo" element={<ProductDetail />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </main>
     </>
   );
 }

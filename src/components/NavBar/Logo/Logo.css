@@ -1,15 +1,17 @@
 .logo-container {
-  height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .logo {
-  height: 80%;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .logo-img {
   height: 100%;
+  width: auto;
   object-fit: contain;
 }

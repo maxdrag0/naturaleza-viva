@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import carrito from "./assets/carrito.png";
+import { ShoppingCart } from "lucide-react";
 import "./CartMenu.css";
 import { useContext } from "react";
 import { CartContext } from "../../../contexts/cart/CartContext";
@@ -10,8 +10,8 @@ function CartWidget() {
   return (
     <>
       <div className="carrito-container">
-        <NavLink to="/carrito" target="" className="carrito">
-          <img src={carrito} alt="carrito logo" className="carrito-img" />
+        <NavLink to="/carrito" className="carrito">
+          <ShoppingCart size={24} color="var(--text-primary)" strokeWidth={2} />
           {cantidadItems > 0 && (
             <span className="cart-badge">{cantidadItems}</span>
           )}

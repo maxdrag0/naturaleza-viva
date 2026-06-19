@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/cart/CartContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "../../components/common/Button/Button";
 import CarritoCard from "../../components/CarritoCard/CarritoCard";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +10,7 @@ import { services } from "../../services";
 
 function Carrito() {
   const { removeList, cartList, total } = useContext(CartContext);
+  const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [orderId, setOrderId] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -19,14 +21,20 @@ function Carrito() {
   };
 
   const handleProcesarCompra = async () => {
+    if (!user) {
+      alert("Debes iniciar sesión para finalizar la compra.");
+      navigate("/login");
+      return;
+    }
+
     setIsProcessing(true);
 
     const orden = {
-      // buyer: {
-      //   name: "",
-      //   phone: "",
-      //   email: "",
-      // },
+      buyer: {
+        uid: user.uid,
+        name: user.displayName || "Usuario",
+        email: user.email,
+      },
       items: cartList,
       total: total,
       date: new Date().toISOString(),
@@ -90,7 +98,13 @@ function Carrito() {
         onClose={() => setShowModal(false)}
         onAccept={handleCerrarYFinalizar}
         tittle="¡Compra Exitosa!"
-        message={`Tu número de orden es: ${orderId}. A la brevedad recibirá un mail de confirmación.`}
+        message={
+          <>
+            El pedido está hecho. A la brevedad nos pondremos en contacto para finalizar la compra y coordinar el envío.
+            <br /><br />
+            <strong>N° de Orden:</strong> {orderId}
+          </>
+        }
       />
     </>
   );

@@ -5,18 +5,17 @@ export const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const total = cartList.reduce(
-    (acc, item) => acc + item.price * item.cantidad,
+    (acc, item) => acc + (item.precioUnitario || item.price || 0) * item.cantidad,
     0
   );
   const cantidadItems = cartList.reduce((acc, item) => acc + item.cantidad, 0);
 
   const addToCart = (item, cantidad) => {
-    console.log(JSON.stringify(item));
-    const yaEstaAgregado = cartList.find((i) => i.id === item.id);
+    const yaEstaAgregado = cartList.find((i) => i.codigo === item.codigo);
 
     if (yaEstaAgregado) {
       const newCart = cartList.map((i) => {
-        if (i.id === item.id) {
+        if (i.codigo === item.codigo) {
           return { ...i, cantidad: i.cantidad + cantidad };
         } else {
           return i;
@@ -27,16 +26,25 @@ const CartContextProvider = ({ children }) => {
     } else {
       setCartList([...cartList, { ...item, cantidad }]);
     }
+  };
 
-    console.log(JSON.stringify(cartList));
+  const updateQuantity = (codigo, cantidad) => {
+    if (cantidad <= 0) return;
+    const newCart = cartList.map((i) => {
+      if (i.codigo === codigo) {
+        return { ...i, cantidad };
+      }
+      return i;
+    });
+    setCartList(newCart);
   };
 
   const removeList = () => {
     setCartList([]);
   };
 
-  const deleteItem = (id) => {
-    const listaNueva = cartList.filter((i) => i.id !== id);
+  const deleteItem = (codigo) => {
+    const listaNueva = cartList.filter((i) => i.codigo !== codigo);
     setCartList(listaNueva);
   };
 
@@ -47,6 +55,7 @@ const CartContextProvider = ({ children }) => {
         total,
         cantidadItems,
         addToCart,
+        updateQuantity,
         removeList,
         deleteItem,
       }}

@@ -9,12 +9,15 @@ import Modal from "../common/Modal/Modal";
 
 function ItemDetails({ item }) {
   const { cartList, addToCart } = useContext(CartContext);
-  const isInCart = cartList.some((prod) => prod.codigo === item.codigo);
+  const itemInCart = cartList.find((prod) => prod.codigo === item.codigo);
+  const inCartQuantity = itemInCart ? itemInCart.cantidad : 0;
+  const availableStock = item.stock - inCartQuantity;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [count, setCount] = useState(1);
 
   const sumar = () => {
-    if (count < item.stock) {
+    if (count < availableStock) {
       setCount(count + 1);
     }
   };
@@ -26,20 +29,22 @@ function ItemDetails({ item }) {
   };
 
   const handleAdd = () => {
-    addToCart(item, count);
-    setIsModalOpen(true);
+    if (count <= availableStock) {
+      addToCart(item, count);
+      setIsModalOpen(true);
+      setCount(1);
+    }
   };
 
   return (
     <div className="item-detail-container">
       <div className="item-img">
-        <img src={item.fotoUrl} />
+        <img src={item.fotoUrl} alt={item.nombre} />
       </div>
       <div className="item-detail">
         <div className="item-detail__intro">
           <div className="item-detail__intro__titulo">{item.nombre}</div>
           <div className="item-detail__intro__rating">
-            {/* ( {item.rating.rate} of {item.rating.count} ) */}
           </div>
           <div className="item-detail__description">{item.descripcion}</div>
           <div className="item-detail__price">
@@ -48,7 +53,13 @@ function ItemDetails({ item }) {
         </div>
 
         <div className="item-detail__carrito">
-          {!isInCart ? (
+          {inCartQuantity > 0 && (
+            <p style={{ color: "var(--accent-color)", fontWeight: "bold", fontSize: "0.9rem", margin: "0 0 0.5rem 0" }}>
+              Ya tienes {inCartQuantity} unidad(es) en el carrito.
+            </p>
+          )}
+
+          {availableStock > 0 ? (
             <div className="item-detail__carrito__contador">
               <Counter count={count} sumar={sumar} restar={restar} />
               <Button callback={handleAdd} className="boton-agregar-carrito">
@@ -56,10 +67,8 @@ function ItemDetails({ item }) {
               </Button>
             </div>
           ) : (
-            <p
-              style={{ color: "green", fontWeight: "bold", textAlign: "left" }}
-            >
-              ¡Item ya agregado al carrito!
+            <p style={{ color: "var(--danger-color)", fontWeight: "bold" }}>
+              Sin stock disponible.
             </p>
           )}
 
@@ -76,7 +85,7 @@ function ItemDetails({ item }) {
         onClose={() => setIsModalOpen(false)}
         onAccept={() => setIsModalOpen(false)}
         tittle="¡Éxito!"
-        message={`Has agregado ${count} unidad(es) de ${item.nomre} al carrito.`}
+        message={`Has agregado ${count} unidad(es) de ${item.nombre} al carrito.`}
       ></Modal>
     </div>
   );

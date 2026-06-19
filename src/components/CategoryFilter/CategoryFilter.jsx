@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { CATEGORIES } from "../../constants/categories";
 import "./CategoryFilter.css";
 
-const categoryValues = Object.values(CATEGORIES);
+const categoryValues = Object.values(CATEGORIES).sort((a, b) => a.localeCompare(b));
 
 function CategoryFilter({ activeCategory }) {
   return (

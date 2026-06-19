@@ -1,56 +1,119 @@
 .carrito-card-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 120px;
-  border: 1px solid #ccc;
-  margin: 0 10px;
-  border-radius: 20px;
-  padding: 20px;
-  background-color: #f0f0f0;
-  margin-bottom: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: 0.75rem;
+  transition: box-shadow var(--transition-fast);
+}
+
+.carrito-card-container:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .item {
   display: flex;
-  height: 100%;
+  gap: 1rem;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
 }
+
 .item__imagen {
-  width: 100px;
-  height: 100%;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: white;
-  border-radius: 10px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
 }
 
 .item__imagen img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  display: block;
 }
 
 .item .item__detalle {
-  padding-left: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.item__detalle h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .item__detalle .precio-unitario {
   margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-style: normal;
   text-align: left;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.item .item__detalle .item__detalle__titulo-boton h3 {
-  margin: 0;
 }
 
 .total-a-pagar {
-  padding-right: 10px;
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  padding: 0;
+}
+
+.carrito-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.carrito-card-counter {
+  display: flex;
+  align-items: center;
+}
+
+.btn-delete-cart {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.btn-delete-cart:hover {
+  background: var(--danger-color);
+  color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+  .carrito-card-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .item__imagen {
+    width: 60px;
+    height: 60px;
+  }
+
+  .carrito-card-actions {
+    justify-content: space-between;
+  }
+
+  .total-a-pagar {
+    font-size: 0.95rem;
+  }
 }
