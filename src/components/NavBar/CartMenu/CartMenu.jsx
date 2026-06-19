@@ -11,7 +11,7 @@ function CartWidget() {
     <>
       <div className="carrito-container">
         <NavLink to="/carrito" className="carrito">
-          <ShoppingCart size={24} color="var(--text-primary)" strokeWidth={2} />
+          <ShoppingCart size={24} color="currentColor" strokeWidth={2} />
           {cantidadItems > 0 && (
             <span className="cart-badge">{cantidadItems}</span>
           )}

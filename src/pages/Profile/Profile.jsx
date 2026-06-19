@@ -1,10 +1,12 @@
 import { useAuth } from "../../contexts/AuthContext";
 import { logoutUser } from "../../services/firebase/authFirebase";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../contexts/ThemeContext";
 import "./Profile.css";
 
 const Profile = () => {
   const { user, role, loading } = useAuth();
+  const { themeMode, setThemeMode } = useTheme();
   const navigate = useNavigate();
 
   if (loading) return <div>Cargando perfil...</div>;
@@ -40,6 +42,20 @@ const Profile = () => {
           <div className="info-group">
             <span className="info-label">Rol:</span>
             <span className="info-value profile-role">{role === "admin" ? "Administrador" : "Comprador"}</span>
+          </div>
+          <div className="info-group">
+            <span className="info-label">Tema:</span>
+            <div className="info-value">
+              <select 
+                value={themeMode} 
+                onChange={(e) => setThemeMode(e.target.value)}
+                className="theme-select"
+              >
+                <option value="system">Sistema (Automático)</option>
+                <option value="light">Claro</option>
+                <option value="dark">Oscuro</option>
+              </select>
+            </div>
           </div>
         </div>
 

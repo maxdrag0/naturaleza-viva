@@ -29,6 +29,24 @@
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
+  --bg-nav: rgba(255, 255, 255, 0.92);
+}
+
+[data-theme="dark"] {
+  --primary-color: #f0f2f5;
+  --secondary-color: #1a1a2e;
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-page: #0f172a;
+  --bg-nav: rgba(26, 26, 46, 0.92);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+  --shadow-lg: 0 12px 24px rgba(0,0,0,0.5);
+  --shadow-xl: 0 20px 40px rgba(0,0,0,0.6);
 }
 
 *,
