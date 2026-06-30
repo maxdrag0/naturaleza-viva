@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import logo from "./assets/lavadora.png";
 import "./Logo.css";
 
 function Logo() {
@@ -7,7 +6,8 @@ function Logo() {
     <>
       <div className="logo-container">
         <NavLink to="/" className="logo">
-          <img src={logo} alt="Vite logo" className="logo-img" />
+          {/* Asegúrate de colocar tu imagen del logo en la carpeta public como logo.png o logo.jpg y actualizar esta ruta si es necesario */}
+          <img src="/logo.png" alt="Naturaleza Viva" className="logo-img" />
         </NavLink>
       </div>
     </>

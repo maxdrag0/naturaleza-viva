@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #1a1a2e;
-  --primary-color-dark: #16213e;
-  --secondary-color: #f0f2f5;
+  --primary-color: #46503d; /* Darkest green */
+  --primary-color-dark: #3a4233;
+  --secondary-color: #909983; /* Mid green */
   --bg-primary: #ffffff;
-  --bg-secondary: #f7f8fa;
-  --bg-page: #f0f2f5;
-  --text-primary: #1a1a2e;
-  --text-secondary: #64748b;
+  --bg-secondary: #d9ddc9; /* Lightest green/cream */
+  --bg-page: #f9faf8; /* Off-white for general background */
+  --text-primary: #46503d;
+  --text-secondary: #747464; /* Brownish gray */
   --text-light: #ffffff;
-  --accent-color: #4361ee;
-  --accent-hover: #3a56d4;
-  --success-color: #22c55e;
-  --warning-color: #f59e0b;
+  --accent-color: #78826a; /* Olive green */
+  --accent-hover: #46503d;
+  --success-color: #909983;
+  --warning-color: #a4a48d;
   --danger-color: #ef4444;
-  --border-color: #e2e8f0;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
-  --shadow-lg: 0 12px 24px rgba(0,0,0,0.08);
-  --shadow-xl: 0 20px 40px rgba(0,0,0,0.1);
+  --border-color: #d9ddc9;
+  --shadow-sm: 0 1px 2px rgba(70,80,61,0.04);
+  --shadow-md: 0 4px 12px rgba(70,80,61,0.06);
+  --shadow-lg: 0 12px 24px rgba(70,80,61,0.08);
+  --shadow-xl: 0 20px 40px rgba(70,80,61,0.1);
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -29,19 +29,19 @@
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
-  --bg-nav: rgba(255, 255, 255, 0.92);
+  --bg-nav: #d9ddc9; /* From user requirement: match logo background */
 }
 
 [data-theme="dark"] {
-  --primary-color: #f0f2f5;
-  --secondary-color: #1a1a2e;
-  --bg-primary: #1a1a2e;
-  --bg-secondary: #16213e;
-  --bg-page: #0f172a;
-  --bg-nav: rgba(26, 26, 46, 0.92);
+  --primary-color: #d9ddc9;
+  --secondary-color: #46503d;
+  --bg-primary: #1a1f16;
+  --bg-secondary: #2c3327;
+  --bg-page: #151a12;
+  --bg-nav: rgba(217, 221, 201, 0.92); /* We might need this to be different for dark, but let's stick to base logic or #2c3327 */
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --border-color: #334155;
+  --text-secondary: #a4a48d;
+  --border-color: #46503d;
   
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.5);

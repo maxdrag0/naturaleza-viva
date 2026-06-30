@@ -29,7 +29,8 @@ const AdminDashboard = () => {
     category: "",
     description: "",
     image: "",
-    stock: 0
+    stock: 0,
+    ventas: 0
   });
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
@@ -71,7 +72,8 @@ const AdminDashboard = () => {
       setIsEditing(true);
       setCurrentProduct({
         ...product,
-        name: product.name || product.nombre || ""
+        name: product.name || product.nombre || "",
+        ventas: product.ventas || 0
       });
     } else {
       setIsEditing(false);
@@ -82,7 +84,8 @@ const AdminDashboard = () => {
         category: "",
         description: "",
         image: "",
-        stock: 0
+        stock: 0,
+        ventas: 0
       });
     }
     setFile(null);
@@ -112,6 +115,7 @@ const AdminDashboard = () => {
         price: Number(currentProduct.price),
         precioUnitario: Number(currentProduct.price),
         stock: Number(currentProduct.stock),
+        ventas: Number(currentProduct.ventas) || 0,
         image: imageUrl,
         fotoUrl: imageUrl,
       };
@@ -389,6 +393,14 @@ const AdminDashboard = () => {
                   value={currentProduct.stock}
                   onChange={(e) => setCurrentProduct({...currentProduct, stock: e.target.value})}
                   required
+                />
+              </div>
+              <div className="form-group">
+                <label>Ventas (Popularidad)</label>
+                <input 
+                  type="number" 
+                  value={currentProduct.ventas}
+                  onChange={(e) => setCurrentProduct({...currentProduct, ventas: e.target.value})}
                 />
               </div>
               <div className="form-group">
