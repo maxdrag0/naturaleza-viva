@@ -5,15 +5,15 @@
 }
 
 .formulario-contacto {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .formulario-contacto input,
@@ -35,12 +35,18 @@
   box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
 }
 
+.formulario-contacto input[name="ciudad"] {
+  grid-column: 1 / -1;
+}
+
 .formulario-contacto textarea {
-  min-height: 150px;
+  grid-column: 1 / -1;
+  min-height: 100px;
   resize: vertical;
 }
 
 .formulario-contacto button {
+  grid-column: 1 / -1;
   padding: 0.75rem 1.5rem;
   background: var(--accent-color);
   color: var(--text-light);
