@@ -173,10 +173,10 @@
 
 .modal-content {
   background: var(--bg-primary);
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   border-radius: var(--radius-lg);
   width: 90%;
-  max-width: 500px;
+  max-width: 550px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: var(--shadow-xl);
@@ -188,11 +188,56 @@
   margin-bottom: 1.5rem;
 }
 
+.admin-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1rem;
+}
+
+.admin-form .form-group {
+  margin-bottom: 0;
+}
+
+.admin-form .form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.admin-form .form-group input,
+.admin-form .form-group select {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+  background: var(--bg-primary);
+  text-align: center; /* Centra lo que se completa en los inputs */
+}
+
+.admin-form .form-group input:focus,
+.admin-form .form-group select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* Full width elements */
+.admin-form .form-group:first-child,
+.admin-form .form-group:has(textarea),
+.admin-form .form-group:has(input[type="file"]),
+.modal-actions {
+  grid-column: 1 / -1;
+}
+
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .btn-cancel {
@@ -225,6 +270,7 @@
   resize: vertical;
   min-height: 80px;
   transition: border-color var(--transition-fast);
+  text-align: left; /* Textarea content usually better left-aligned */
 }
 
 .admin-form .form-group textarea:focus {

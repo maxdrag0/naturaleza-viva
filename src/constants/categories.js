@@ -5,4 +5,5 @@ export const CATEGORIES = {
   TIERRA: "Tierra",
   FERTILIZANTES: "Fertilizantes",
   QUIMICOS: "Químicos",
+  OTROS: "Otros",
 };
