@@ -4,6 +4,7 @@ import { useState } from "react";
 function FormularioContacto({ onConfirm }) {
   const [formData, setFormData] = useState({
     email: "",
+    telefono: "",
     direccion: "",
     ciudad: "",
     mensaje: "",
@@ -26,6 +27,15 @@ function FormularioContacto({ onConfirm }) {
           name="email"
           placeholder="juan@hotmail.com"
           value={formData.email}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="tel"
+          name="telefono"
+          placeholder="Teléfono"
+          value={formData.telefono}
           onChange={handleChange}
           required
         />
