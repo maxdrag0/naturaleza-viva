@@ -100,20 +100,7 @@ const Profile = () => {
               )}
             </div>
           </div>
-          <div className="info-group">
-            <span className="info-label">Tema:</span>
-            <div className="info-value">
-              <select 
-                value={themeMode} 
-                onChange={(e) => setThemeMode(e.target.value)}
-                className="theme-select"
-              >
-                <option value="system">Sistema (Automático)</option>
-                <option value="light">Claro</option>
-                <option value="dark">Oscuro</option>
-              </select>
-            </div>
-          </div>
+
         </div>
 
         <button className="logout-btn" onClick={handleLogout}>
