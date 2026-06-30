@@ -16,6 +16,16 @@ function FormularioContacto({ onConfirm }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (
+      !formData.email.trim() ||
+      !formData.telefono.trim() ||
+      !formData.direccion.trim() ||
+      !formData.ciudad.trim() ||
+      !formData.mensaje.trim()
+    ) {
+      alert("Por favor, completa todos los campos obligatorios.");
+      return;
+    }
     onConfirm(formData);
   };
 

@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 120px);
-  padding: 2rem 0;
+  min-height: calc(100vh - 250px);
+  padding: 1.5rem 1rem;
 }
 
 .profile-card {
@@ -11,9 +11,9 @@
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
-  padding: 2.5rem;
+  padding: 1.5rem 2rem;
   width: 100%;
-  max-width: 480px;
+  max-width: 650px;
 }
 
 .profile-card h2 {
@@ -52,6 +52,58 @@
   color: var(--text-primary);
   font-weight: 500;
   font-size: 0.95rem;
+}
+
+/* Phone edit styles */
+.phone-edit-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.phone-input {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  width: 150px;
+}
+
+.btn-edit-phone,
+.btn-save-phone,
+.btn-cancel-phone {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.btn-edit-phone {
+  background-color: var(--secondary-color);
+  color: var(--text-primary);
+}
+
+.btn-save-phone {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-cancel-phone {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-edit-phone:hover,
+.btn-save-phone:hover,
+.btn-cancel-phone:hover {
+  opacity: 0.8;
 }
 
 .profile-role {

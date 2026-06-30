@@ -93,3 +93,25 @@ export const getUserRole = async (uid) => {
     return "buyer";
   }
 };
+
+export const getUserData = async (uid) => {
+  try {
+    const userDoc = await getDoc(doc(db, "users", uid));
+    if (userDoc.exists()) {
+      return userDoc.data();
+    }
+    return null;
+  } catch (error) {
+    console.error("Error getting user data:", error);
+    return null;
+  }
+};
+
+export const updateUserData = async (uid, data) => {
+  try {
+    await setDoc(doc(db, "users", uid), data, { merge: true });
+  } catch (error) {
+    console.error("Error updating user data:", error);
+    throw error;
+  }
+};

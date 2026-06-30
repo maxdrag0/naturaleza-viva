@@ -103,12 +103,19 @@ ol {
   list-style: none;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* ---------- GLOBAL LAYOUT CONTAINER ---------- */
 .page-container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.5rem;
   width: 100%;
+  flex: 1; /* Makes main content expand to push footer down */
 }
 
 /* ---------- GLOBAL BUTTON STYLES ---------- */

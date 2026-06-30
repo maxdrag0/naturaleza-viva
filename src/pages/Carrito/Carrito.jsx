@@ -10,7 +10,7 @@ import { services } from "../../services";
 
 function Carrito() {
   const { removeList, cartList, total } = useContext(CartContext);
-  const { user } = useAuth();
+  const { user, userData } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [orderId, setOrderId] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -27,6 +27,12 @@ function Carrito() {
       return;
     }
 
+    if (!userData?.telefono) {
+      alert("Es obligatorio configurar tu número de teléfono en tu perfil para realizar un pedido.");
+      navigate("/profile");
+      return;
+    }
+
     setIsProcessing(true);
 
     const orden = {
@@ -34,6 +40,7 @@ function Carrito() {
         uid: user.uid,
         name: user.displayName || "Usuario",
         email: user.email,
+        telefono: userData.telefono,
       },
       items: cartList,
       total: total,
