@@ -9,7 +9,7 @@ import "./main.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/react-coder">
+    <BrowserRouter basename="/naturaleza-viva">
       <ThemeProvider>
         <AuthProvider>
           <CartContextProvider>
